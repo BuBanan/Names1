@@ -21,11 +21,12 @@ namespace Names1
         {
 
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
                 lstNames.Items.Add(txtName.Text);
+            Cursor.Position = PointToScreen(button1.Location);
+            btnAdd.Text = "&Print";
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -46,17 +47,19 @@ namespace Names1
             }
         }
 
-        private void btnAdd_MouseEnter(object sender, EventArgs e) =>
+private void btnAdd_MouseEnter(object sender, EventArgs e) =>
             Cursor.Hide();
-        {
 private void btnAdd_MouseLeave(object sender, EventArgs e) =>
             Cursor.Show();
-        {
 private void button1_Click(object sender, EventArgs e)
         {
             lstNames.Items.Clear();
+            Cursor.Position = PointToScreen(btnAdd.Location);
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e) =>
+            Cursor.Hide();
+ private void button1_MouseLeave(object sender, EventArgs e) =>
+            Cursor.Show();
     }
     }
-    }
-}
